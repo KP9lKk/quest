@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Flask App{% endblock %}
+
+{% block content %}
+<div class="card p-2 h-100 mx-auto" style="max-width: 1000px;">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text text-start">{{question.text}}</p>
+        <div class="d-grid gap-2">
+          {% for action in question.actions %}
+          <form class="mx-auto w-100" action="/change_stage" method="post">
+          <button class="btn btn-secondary w-100" type="submit" name="stage" value="{{action.route_id}}">{{action.action_text}}</button>
+          </form>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+       <div class="col-md-4">
+      <img src="{{ url_for('static', filename='images/' + question.image) }}" class="img-fluid rounded-3" alt="...">
+    </div>
+  </div>
+</div>
+{% endblock %}

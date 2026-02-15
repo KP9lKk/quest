@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Дом астерия{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+<body class="bg-dark text-light m-4 d-flex flex-column min-vh-100">
+    <header class="container">
+            <p  class="fs-2 fw-weight-normal col-md-10">Дом Астерия</p>
+    </header>
+    <main class="container my-4 container-fluid flex-grow-1 d-flex justify-content-center align-items-center">
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.js') }}"></script>
+    {% block scripts %}{% endblock %}
+       <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>Jorge Luis Borges • La casa de Asterión</p>
+    </footer>
+</body>
+</html>
